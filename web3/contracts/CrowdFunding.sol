@@ -33,7 +33,7 @@ contract CrowdFunding {
         campaign.image = _image;
 
         numberOfCampaigns++;
-
+        return numberOfCampaigns - 1;
     }
 
     function donate(uint256 _id) public payable{
@@ -51,12 +51,18 @@ contract CrowdFunding {
         }
     }
 
-    function getDonators(uint256 _id) public returns (address[] memory, uint256[] memory){
+    function getDonators(uint256 _id) public view returns (address[] memory, uint256[] memory){
         return (campaigns[_id].donators, campaigns[_id].donations);
     }
 
     function getCampaigns() public view returns (Campaign[] memory){
         Campaign[] memory allCampaigns = new Campaign[](numberOfCampaigns);
+
+        for(uint i = 0; i < numberOfCampaigns; i++){
+            Campaign storage item = campaigns[i];
+
+            allCampaigns[i] = item;
+        }
+        return (allCampaigns);
     }
-    
 }
