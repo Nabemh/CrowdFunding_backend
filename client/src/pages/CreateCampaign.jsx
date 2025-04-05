@@ -1,6 +1,23 @@
-import React from 'react'
+import React, { userState, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { ethers} from 'ethers';
+
+import { money } from '../assets';
+import { CustomButton } from '../components';
+import { checkIfImage} from '../uitls'
 
 const CreateCampaign = () => {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [form, setForm] = useState({
+    name: '',
+    title: '',
+    description: '',
+    target: '',
+    deadline: '',
+    image: '',
+  });
+
   return (
     <div>CreateCampaign</div>
   )
