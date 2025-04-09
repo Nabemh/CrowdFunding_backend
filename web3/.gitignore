@@ -10,3 +10,6 @@ cache*
 artifacts*
 
 contracts/RealEstate.sol
+contracts/Estate.sol
+contracts/PollStation.sol
+contracts/AuctionHouse.sol
