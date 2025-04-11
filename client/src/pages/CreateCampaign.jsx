@@ -15,7 +15,7 @@ const CreateCampaign = () => {
     name: '',
     title: '',
     description: '',
-    target: '', 
+    target: '',
     deadline: '',
     image: ''
   });
@@ -49,14 +49,14 @@ const CreateCampaign = () => {
 
       <form onSubmit={handleSubmit} className="w-full mt-[65px] flex flex-col gap-[30px]">
         <div className="flex flex-wrap gap-[40px]">
-          <FormField 
+          <FormField
             labelName="Your Name *"
             placeholder="John Doe"
             inputType="text"
             value={form.name}
             handleChange={(e) => handleFormFieldChange('name', e)}
           />
-          <FormField 
+          <FormField
             labelName="Campaign Title *"
             placeholder="Write a title"
             inputType="text"
@@ -65,7 +65,7 @@ const CreateCampaign = () => {
           />
         </div>
 
-        <FormField 
+        <FormField
             labelName="Story *"
             placeholder="Write your story"
             isTextArea
@@ -79,14 +79,14 @@ const CreateCampaign = () => {
         </div>
 
         <div className="flex flex-wrap gap-[40px]">
-          <FormField 
+          <FormField
             labelName="Goal *"
             placeholder="ETH 0.50"
             inputType="text"
             value={form.target}
             handleChange={(e) => handleFormFieldChange('target', e)}
           />
-          <FormField 
+          <FormField
             labelName="End Date *"
             placeholder="End Date"
             inputType="date"
@@ -95,7 +95,7 @@ const CreateCampaign = () => {
           />
         </div>
 
-        <FormField 
+        <FormField
             labelName="Campaign image *"
             placeholder="Place image URL of your campaign"
             inputType="url"
@@ -104,7 +104,7 @@ const CreateCampaign = () => {
           />
 
           <div className="flex justify-center items-center mt-[40px]">
-            <CustomButton 
+            <CustomButton
               btnType="submit"
               title="Submit new campaign"
               styles="bg-[#1dc071]"
