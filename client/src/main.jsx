@@ -10,7 +10,7 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <React.StrictMode>
+
     <ThirdwebProvider
       activeChain={Sepolia}
       clientId={11155111} // Ensure this environment variable is set later
@@ -21,5 +21,5 @@ root.render(
         </StateContextProvider>
       </Router>
     </ThirdwebProvider>
-  </React.StrictMode>
+
 );
