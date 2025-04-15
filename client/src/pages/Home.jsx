@@ -20,7 +20,7 @@ const Home = () => {
     if(contract) fetchCampaigns();
   }, [address, contract]);
   return (
-    <DisplayCampaigns 
+    <DisplayCampaigns
     title= "All Campaigns"
     isLoading={isLoading}
     campaigns={campaigns}

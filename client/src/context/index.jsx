@@ -20,20 +20,28 @@ export const StateContextProvider = ({ children }) => {
   const connect = () => connectWithMetamask(metamaskWallet());
 
   const publishCampaign = async (form) => {
+    if (!createCampaign) {
+      console.error("Contract method not ready");
+      return;
+    }
+
     try {
-      const data = await createCampaign([
-        address,
-        form.title,
-        form.description,
-        form.target,
-        new Date(form.deadline).getTime(),
-        form.image,
-      ]);
+      const data = await createCampaign({
+        args: [
+          address,
+          form.title,
+          form.description,
+          form.target,
+          new Date(form.deadline).getTime(),
+          form.image,
+        ],
+      });
       console.log("Contract call success", data);
     } catch (error) {
       console.log("Contract call failure", error);
     }
   };
+
 
   const getCampaigns = async () => {
     const campaigns = await contract.call('getCampaigns');
@@ -43,10 +51,10 @@ export const StateContextProvider = ({ children }) => {
       title: campaign.title,
       description: campaign.description,
       target: ethers.utils.formatUnits(campaign.target.toString(), 18),
-      deadline: deadline.toNumber(),
-      amountCollected: ethers.utils.formatEther(amountCollected.toString()),
+      deadline: campaign.deadline.toNumber(),
+      amountCollected: ethers.utils.formatEther(campaign.amountCollected.toString()),
       image: campaign.image,
-      pId: i
+      pId: i,
     }));
 
     return console.log(parsedCampaigns);
@@ -55,13 +63,13 @@ export const StateContextProvider = ({ children }) => {
 
 
   return (
-    <StateContext.Provider 
+    <StateContext.Provider
       value={{
         address,
         contract,
         connect,
-        createCampaign,
-        publishCampaign,
+        createCampaign: publishCampaign,
+        getCampaigns,
       }}
     >
       {children}
