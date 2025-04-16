@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { loader } from '../assets';
 
-const DisplayCampaigns = () => {
+const DisplayCampaigns = ({ title, isLoading, campaigns}) => {
+  const navigate = useNavigate();
   return (
-    <div>DisplayCampaigns</div>
+    <div>
+      <h1>{title}</h1>
+    </div>
   )
 }
 
-export default DisplayCampaigns
+export default CampaignDetails
