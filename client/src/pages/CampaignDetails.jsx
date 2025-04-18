@@ -13,7 +13,7 @@ const CampaignDetails = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState('');
-  const [donations, setDonators] = useState([]);
+  const [donators, setDonators] = useState([]);
 
   const remainingDays = daysLeft(state.deadline);
 
