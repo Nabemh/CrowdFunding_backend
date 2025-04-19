@@ -85,7 +85,18 @@ const CampaignDetails = () => {
               Fund the campaign
             </p>
             <div className='mt-[30px]'>
-                
+                <input
+                  type='number'
+                  placeholder='ETH 0.1'
+                  step='0.01'
+                  className='w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-#4B5264] rounded-[10px]'
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                />
+
+                <div>
+                  
+                </div>
             </div>
 
           </div>
