@@ -86,7 +86,9 @@ const CampaignDetails = () => {
 
             <div className='mt-[20px] flex flex-col gap-4'>
               {donators.length > 0 ? donators.map((item, index) => {
-                <div>
+                <div key={`${item.donator}-${index}`}
+                className='flex - justify-between items-center gap-4'>
+                  <p className='font-epilogue font-normal text-[16px] text-[#b2b3bd] leading-[26px] break-all'>{index + 1}. {item.donator}</p>
                   DONATOR
                 </div>
               }) :   (
@@ -123,7 +125,7 @@ const CampaignDetails = () => {
                   </p>
                 </div>
 
-                <CustomButton 
+                <CustomButton
                   btnType="button"
                   title="Fund Campaign"
                   styles="w-full bg-[#8c6dfd]"
