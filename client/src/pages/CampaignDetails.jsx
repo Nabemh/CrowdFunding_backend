@@ -97,8 +97,14 @@ const CampaignDetails = () => {
                 <div className='mt-[20px] p-4 bg-[#13131a] rounded-[10px]'>
                   <h4 className='font-epilogue font-semibold text-[14px] leading-[22px] text-white'>Back it because you believe in it.</h4>
                   <p className='mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]'>Support the project for no reward, just because it speaks to you.</p>
-
                 </div>
+
+                <CustomButton 
+                  btnType="button"
+                  title="Fund Campaign"
+                  styles="w-full bg-[#8c6dfd]"
+                  handleClick={handleDonate}
+                />
             </div>
 
           </div>
