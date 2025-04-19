@@ -17,6 +17,18 @@ const CampaignDetails = () => {
 
   const remainingDays = daysLeft(state.deadline);
 
+  const fetchDonators = async () => {
+    const data = await getDonations(state.pId);
+
+    setDonators(data);
+  }
+
+  useEffect(() => {
+    if(contract){
+      fetchDonators();
+    }
+  }, [contract, address])
+
   const handleDonate = async () => {
     setIsLoading(true);
 
@@ -87,7 +99,7 @@ const CampaignDetails = () => {
 
         <div className='flex-1'>
           <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>
-          
+
           <div className='mt-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]'>
             <p className='font-epilogue font-medium text-[20px] leading-[30px] text-center text-[#808191]'>
               Fund the campaign
