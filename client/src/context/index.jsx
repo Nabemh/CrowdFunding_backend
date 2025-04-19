@@ -70,6 +70,12 @@ export const StateContextProvider = ({ children }) => {
     return filteredCampaigns;
   }
 
+  const donate = async (pId, amount) => {
+    const data = await contract.call('donateToCampaign', pId, address, amount);
+
+    return data;
+  }
+
 
   return (
     <StateContext.Provider
