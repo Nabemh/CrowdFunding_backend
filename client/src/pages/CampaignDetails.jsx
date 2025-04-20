@@ -9,7 +9,7 @@ import { thirdweb } from '../assets';
 
 const CampaignDetails = () => {
   const { state } = useLocation();
-  const { getDonations, contract, address } = useStateContext();
+  const { donate, getDonations, contract, address } = useStateContext();
 
   const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState('');
@@ -32,7 +32,7 @@ const CampaignDetails = () => {
   const handleDonate = async () => {
     setIsLoading(true);
 
-    await handleDonate(state.pId, amount);
+    await donate(state.pId, amount);
 
     setIsLoading(false);
   }
