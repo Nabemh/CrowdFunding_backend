@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { ethers } from 'ethers';
 
 import { useStateContext } from '../context';
-import { CountBox, CustomButton } from '../components';
+import { CountBox, CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
 import { thirdweb } from '../assets';
 
@@ -39,7 +39,7 @@ const CampaignDetails = () => {
 
   return (
     <div>
-      {isLoading && 'Loading...'}
+      {isLoading && <Loader />}
 
       <div className='w-full flex md:flex-row flex-col mt-10 gap-[30px]'>
         <div className='flex-1 flex-col'>
