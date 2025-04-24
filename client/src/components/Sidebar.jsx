@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { logo, sun, moon } from '../assets';
 import { navlinks } from '../constants';
@@ -14,9 +14,14 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
   </div>
 )
 
-const Sidebar = () => {
+const Sidebar = ({ theme, setTheme }) => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState('dashboard');
+
+  const toggleTheme = () => {
+    setTheme(theme === 'datk' ? 'light' : 'dark');
+  }
+
   return (
     <div className='flex justify-between items-center flex-col sticky top-5 h-[93vh]'>
       <Link to= "/">
@@ -40,7 +45,11 @@ const Sidebar = () => {
           ))}
         </div>
 
-        <Icon styles="bg-[#1c1c24] shadow-secondary" imgUrl={sun} />
+        <Icon
+        styles="bg-[#1c1c24] shadow-secondary"
+        imgUrl={theme === 'dark' ? moon : sun}
+        handleClick={toggleTheme}
+        />
       </div>
     </div>
   )
