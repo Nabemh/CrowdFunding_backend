@@ -18,7 +18,7 @@ const Sidebar = ({ theme, setTheme }) => {
   const [isActive, setIsActive] = useState('dashboard');
 
   const toggleTheme = () => {
-    setTheme(theme === 'datk' ? 'light' : 'dark');
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   }
 
   return (
