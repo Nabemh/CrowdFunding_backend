@@ -46,7 +46,7 @@ const Sidebar = ({ theme, setTheme }) => {
 
         <Icon
         styles="bg-[#1c1c24] shadow-secondary"
-        imgUrl={theme === 'dark' ? moon : sun}
+        imgUrl={theme === 'dark' ? sun : moon}
         handleClick={toggleTheme}
         />
       </div>
