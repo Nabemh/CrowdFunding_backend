@@ -7,6 +7,10 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        background: "var(--bg-color)",
+        text: "var(--text-color)",
+      },
       fontFamily: {
         epilogue: ['Epilogue', 'sans-serif'],
       },
