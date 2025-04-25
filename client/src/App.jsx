@@ -17,7 +17,7 @@ const App = () => {
   }, [theme]);
 
   return (
-    <div className="relative sm:-8 p-4 bg-white text-black dark:bg-[#13131a] dark:text-white min-h-screen flex flex-row transition-all">
+    <div className="relative sm:-8 p-4 bg-white text-black dark:bg-[#13131a] dark:text-text min-h-screen flex flex-row transition-all">
 
       <div className="sm:flex hidden mr-10 relative">
         <Sidebar theme={theme} setTheme={setTheme} />

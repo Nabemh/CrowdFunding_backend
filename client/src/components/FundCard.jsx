@@ -17,7 +17,7 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
             </div>
 
             <div className='block'>
-                <h3 className='font-epilogue font-semibold text-[16px] text-white text-left leading-[26px] truncate'>{title}</h3>
+                <h3 className='font-epilogue font-semibold text-[16px] text-text text-left leading-[26px] truncate'>{title}</h3>
                 <p className='mt-[5px] font-epilogue font-normal text-[#808191] text-left leading-[18px] truncate'>{description}</p>
             </div>
 
