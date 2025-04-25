@@ -4,7 +4,7 @@ import { logo, sun, moon } from '../assets';
 import { navlinks } from '../constants';
 
 const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
-  <div className={`w-[48px] h-[48px] rounded-[10px] ${isActive && isActive === name && 'bg-[#FFFFFF] dark:bg-[#2c2f32]'} flex justify-center items-center ${!disabled && 'cursor-pointer'} ${styles}`} onClick={handleClick}>
+  <div className={`w-[48px] h-[48px] rounded-[10px] ${isActive && isActive === name && 'bg-background'} flex justify-center items-center ${!disabled && 'cursor-pointer'} ${styles}`} onClick={handleClick}>
     {!isActive ? (
       <img src={imgUrl} alt="fund_logo" className="w-1/2 h-1/2" />
     ) : (
@@ -45,7 +45,7 @@ const Sidebar = ({ theme, setTheme }) => {
         </div>
 
         <Icon
-        styles="dark:bg-[#1c1c24] shadow-secondary"
+        styles="bg-background shadow-secondary"
         imgUrl={theme === 'dark' ? sun : moon}
         handleClick={toggleTheme}
         />
