@@ -36,6 +36,7 @@ const FormField = ({ labelName, placeholder, inputType, isTextArea, isCategory, 
                   <option value="Competition" className="dark: text-black">Competition</option>
                   <option value="Memorial" className="dark: text-black">Memorial</option>
                   <option value="Research" className="dark: text-black">Research</option>
+                  <option value="Other" className="dark: text-black">Other</option>
                 </select>
               ) : (
             <input
