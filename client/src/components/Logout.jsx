@@ -1,5 +1,6 @@
 import React from 'react';
-import { useStateContext } from '../context'; // 1. Import context
+import { useStateContext } from '../context';
+
 
 const Logout = ({ isOpen, onClose }) => {
   const { disconnect } = useStateContext();

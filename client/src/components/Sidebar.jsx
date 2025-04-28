@@ -17,7 +17,7 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
 const Sidebar = ({ theme, setTheme }) => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState('dashboard');
-  const [showLogoutModal, setShowLogoutModal] = useState(false); // new state
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -55,7 +55,6 @@ const Sidebar = ({ theme, setTheme }) => {
         />
       </div>
 
-      {/* Render Modal */}
       <Logout
         isOpen={showLogoutModal}
         onClose={() => setShowLogoutModal(false)}
