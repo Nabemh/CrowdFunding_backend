@@ -56,6 +56,14 @@ const CreateCampaign = () => {
             value={form.name}
             handleChange={(e) => handleFormFieldChange('name', e)}
           />
+
+          <FormField
+            labelName="Email *"
+            placeholder="name@gmail.com"
+            inputType="text"
+            value={form.email}
+            handleChange={(e) => handleFormFieldChange('email', e)}
+          />
           <FormField
             labelName="Campaign Title *"
             placeholder="Write a title"
@@ -78,7 +86,58 @@ const CreateCampaign = () => {
           <h4 className="font-epilogue font-bold text-[25px] text-text ml-[20px]">You will get 100% of the raised amount</h4>
         </div>
 
-        <div className="flex flex-wrap gap-[40px]">
+        <div>
+          <label htmlFor="price" className="block text-sm/6 font-medium text-gray-900">Price</label>
+            <div className="mt-2">
+              <div className="flex gap-[40px]">
+                <div className="flex items-center w-[570px] rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+                  <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">$</div>
+                  <input
+                    type="text"
+                    name="price"
+                    id="price"
+                    className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
+                    placeholder="0.00"
+                  />
+                  <div className="relative">
+                    <select
+                      id="currency"
+                      name="currency"
+                      aria-label="Currency"
+                      className="appearance-none rounded-md py-1.5 pr-7 pl-3 text-base text-gray-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    >
+                      <option>USD</option>
+                      <option>CAD</option>
+                      <option>EUR</option>
+                    </select>
+                    <svg
+                      className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 size-5 text-gray-500 sm:size-4"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+              <FormField
+                labelName="Campaign image *"
+                placeholder="Place image URL of your campaign"
+                inputType="url"
+                value={form.image}
+                handleChange={(e) => handleFormFieldChange('image', e)}
+              />
+            </div>
+          </div>
+        </div>
+
+
+      <div className="flex flex-wrap gap-[40px]">
           <FormField
             labelName="Goal *"
             placeholder="ETH 0.50"
@@ -94,14 +153,6 @@ const CreateCampaign = () => {
             handleChange={(e) => handleFormFieldChange('deadline', e)}
           />
         </div>
-
-        <FormField
-            labelName="Campaign image *"
-            placeholder="Place image URL of your campaign"
-            inputType="url"
-            value={form.image}
-            handleChange={(e) => handleFormFieldChange('image', e)}
-          />
 
           <div className="flex justify-center items-center mt-[40px]">
             <CustomButton
