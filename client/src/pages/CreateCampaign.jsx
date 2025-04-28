@@ -86,6 +86,7 @@ const CreateCampaign = () => {
           <h4 className="font-epilogue font-bold text-[25px] text-text ml-[20px]">You will get 100% of the raised amount</h4>
         </div>
 
+        <div className="flex flex-wrap gap-[40px]">
         <FormField
             labelName="Select Category *"
             placeholder="Select..."
@@ -101,6 +102,7 @@ const CreateCampaign = () => {
               value={form.image}
               handleChange={(e) => handleFormFieldChange('image', e)}
         />
+        </div>
 
       <div className="flex flex-wrap gap-[40px]">
           <FormField
