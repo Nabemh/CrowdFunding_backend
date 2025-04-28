@@ -1,9 +1,9 @@
 import React from 'react';
 import { useStateContext } from '../context';
-
+import { useDisconnect } from "@thirdweb-dev/react";
 
 const Logout = ({ isOpen, onClose }) => {
-  const { disconnect } = useStateContext();
+  const  disconnect  = useDisconnect();
 
   if (!isOpen) return null;
 
