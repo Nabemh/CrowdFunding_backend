@@ -20,7 +20,7 @@ const FormField = ({ labelName, placeholder, inputType, isTextArea, isCategory, 
                 required
                 value={value}
                 onChange={handleChange}
-                className="w-full py-3 px-4 border border-[#3a3a43] bg-background dark:bg-gray-800 font-epilogue text-[14px] text-gray-700 dark:text-gray-200 rounded-[10px] focus:outline-none"
+                className="w-full py-3 px-4 border border-[#3a3a43] bg-background font-epilogue text-[14px] text-text rounded-[10px] focus:outline-none"
                 >
                 <option disabled value="">Select a category</option>
                 <option value="Fundraiser">Fundraiser</option>
