@@ -15,30 +15,30 @@ const FormField = ({ labelName, placeholder, inputType, isTextArea, isCategory, 
                 placeholder={placeholder}
                 className='py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-text text-[14px] placeholder:text-[#4b5264] rounded-[10px] sm:min-w-[300px]'
             />
-         ) : isCategory ? (
+            ) : isCategory ? (
                 <select
-                  required
-                  value={value}
-                  onChange={handleChange}
-                  placeholder={placeholder}
-                  className="py-[20px] sm:px-[25px] px-[20px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-[14px] placeholder:text-[#4b5264] rounded-[10px] sm:min-w-[300px]"
+                required
+                value={value}
+                onChange={handleChange}
+                className="w-full py-3 px-4 border border-[#3a3a43] bg-background dark:bg-gray-800 font-epilogue text-[14px] text-gray-700 dark:text-gray-200 rounded-[10px] focus:outline-none"
                 >
-                  <option value="Fundraiser" className="dark:text-black">Fundraiser</option>
-                  <option value="Personal" className="dark: text-black">Personal</option>
-                  <option value="Nonprofit" className="dark: text-black">Nonprofit</option>
-                  <option value="Medical" className="dark: text-black">Medical</option>
-                  <option value="Crisis Relief" className="dark: text-black">Crisis Relief</option>
-                  <option value="Education" className="dark: text-black">Education</option>
-                  <option value="Emergency" className="dark: text-black">Emergency</option>
-                  <option value="Sports" className="dark: text-black">Sports</option>
-                  <option value="Environment" className="dark: text-black">Environment</option>
-                  <option value="Family" className="dark: text-black">Family</option>
-                  <option value="Competition" className="dark: text-black">Competition</option>
-                  <option value="Memorial" className="dark: text-black">Memorial</option>
-                  <option value="Research" className="dark: text-black">Research</option>
-                  <option value="Other" className="dark: text-black">Other</option>
+                <option disabled value="">Select a category</option>
+                <option value="Fundraiser">Fundraiser</option>
+                <option value="Personal">Personal</option>
+                <option value="Nonprofit">Nonprofit</option>
+                <option value="Medical">Medical</option>
+                <option value="Crisis Relief">Crisis Relief</option>
+                <option value="Education">Education</option>
+                <option value="Emergency">Emergency</option>
+                <option value="Sports">Sports</option>
+                <option value="Environment">Environment</option>
+                <option value="Family">Family</option>
+                <option value="Competition">Competition</option>
+                <option value="Memorial">Memorial</option>
+                <option value="Research">Research</option>
+                <option value="Other">Other</option>
                 </select>
-              ) : (
+            ) : (
             <input
                 required
                 value={value}
