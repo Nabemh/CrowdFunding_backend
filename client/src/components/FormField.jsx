@@ -24,12 +24,13 @@ const FormField = ({ labelName, placeholder, inputType, isTextArea, isCategory, 
                 >
                 <option disabled value="">Select a category</option>
                 <option value="Fundraiser">Fundraiser</option>
+                <option value="Start-Up">Start-Up</option>
                 <option value="Personal">Personal</option>
-                <option value="Nonprofit">Nonprofit</option>
+                <option value="Nonprofit">Non-profit</option>
                 <option value="Medical">Medical</option>
                 <option value="Crisis Relief">Crisis Relief</option>
                 <option value="Education">Education</option>
-                <option value="Emergency">Emergency</option>
+                <option value="Product Lunch">Product Lunch</option>
                 <option value="Sports">Sports</option>
                 <option value="Environment">Environment</option>
                 <option value="Family">Family</option>
