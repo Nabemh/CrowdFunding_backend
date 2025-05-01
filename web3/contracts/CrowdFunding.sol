@@ -4,7 +4,7 @@ pragma solidity ^0.8.9;
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract CrowdFunding is ReentrancyGuard {
-    
+
     struct Campaign {
         address owner;
         string title;
@@ -66,8 +66,6 @@ contract CrowdFunding is ReentrancyGuard {
     function donate(uint256 _id) public payable nonReentrant {
         uint256 amount = msg.value;
         Campaign storage campaign = campaigns[_id];
-
-        require(block.timestamp < campaign.deadline, "Campaign has ended");
 
         campaign.donators.push(msg.sender);
         campaign.donations.push(amount);
