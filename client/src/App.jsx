@@ -5,7 +5,7 @@ import { Home, CampaignDetails, CreateCampaign, Profile } from './pages';
 import { Navbar, Sidebar } from './components';
 
 const App = () => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     const root = document.documentElement;
