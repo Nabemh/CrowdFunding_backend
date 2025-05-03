@@ -14,7 +14,9 @@ const CreateCampaign = () => {
   const [form, setForm] = useState({
     name: '',
     title: '',
+    email: '',
     description: '',
+    category: '',
     target: '',
     deadline: '',
     image: ''
