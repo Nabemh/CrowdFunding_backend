@@ -1,5 +1,7 @@
 import React from 'react';
 
+import blockies from 'ethereum-blockies-base64';
+
 import { tagType, thirdweb } from '../assets';
 import { daysLeft } from '../utils';
 
@@ -36,8 +38,11 @@ const FundCard = ({ owner, title, description, category ,target, deadline, amoun
 
             <div className='flex items-center mt-[20px] gap-[20px]'>
                 <div className='w-[30px] h-[30px] rounded-full flex justify-center items-center bg[#13131a]'>
-                    <img src={thirdweb} alt='user' className='w-1/2 h-1/2 object-contain'/>
-                    {/* make this to show a random image for the user like a bitmoji or something */}
+                <img
+                    src={blockies.createDataURL({ seed: owner })}
+                    alt='user avatar'
+                    className='w-full h-full object-cover rounded-full'
+                />
                 </div>
                 <p className='flex-1 font-epilogue font-normal text-[12px] text-text truncate'>by <span className='text-text'>{owner}</span></p>
 
