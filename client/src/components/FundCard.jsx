@@ -1,6 +1,7 @@
 import React from 'react';
 
 import blockies from 'ethereum-blockies-base64';
+import Avatar from './Avatar';
 
 import { tagType, thirdweb } from '../assets';
 import { daysLeft } from '../utils';
