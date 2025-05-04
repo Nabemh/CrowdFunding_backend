@@ -39,11 +39,7 @@ const FundCard = ({ owner, title, description, category ,target, deadline, amoun
 
             <div className='flex items-center mt-[20px] gap-[20px]'>
                 <div className='w-[30px] h-[30px] rounded-full flex justify-center items-center bg[#13131a]'>
-                <img
-                    src={blockies.createDataURL({ seed: owner })}
-                    alt='user avatar'
-                    className='w-full h-full object-cover rounded-full'
-                />
+                <Avatar address={owner} />
                 </div>
                 <p className='flex-1 font-epilogue font-normal text-[12px] text-text truncate'>by <span className='text-text'>{owner}</span></p>
 
