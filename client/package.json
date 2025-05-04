@@ -9,10 +9,12 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
+    "@download/blockies": "^1.0.3",
     "@headlessui/react": "^2.2.2",
     "@tailwindcss/postcss": "^4.1.2",
     "@thirdweb-dev/react": "^4.9.4",
     "@thirdweb-dev/sdk": "^4.0.99",
+    "ethereum-blockies-base64": "^1.0.2",
     "ethers": "^5.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
