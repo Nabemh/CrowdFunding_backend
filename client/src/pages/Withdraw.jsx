@@ -12,23 +12,12 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../com
 
 const Withdraw = () => {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50">
-      <header className="border-b bg-white px-6 py-4">
-        <div className="mx-auto flex max-w-6xl items-center justify-between">
-          <h1 className="text-xl font-bold text-slate-900">FundRaiser</h1>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost">Dashboard</Button>
-            <Button variant="ghost">Projects</Button>
-            <Button variant="ghost">Settings</Button>
-            <div className="h-8 w-8 rounded-full bg-emerald-500" />
-          </div>
-        </div>
-      </header>
+    <div className="flex min-h-screen flex-col bg-background">
       <main className="flex-1 px-4 py-12">
         <div className="mx-auto max-w-3xl">
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-slate-900">Withdraw Funds</h2>
-            <p className="mt-2 text-slate-600">Transfer your project funds to your preferred payment method.</p>
+            <h2 className="text-3xl font-bold text-text">Withdraw Funds</h2>
+            <p className="mt-2 text-text">Transfer your project funds to your preferred payment method.</p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
@@ -62,11 +51,11 @@ const Withdraw = () => {
                       </TooltipProvider>
                     </div>
                     <div className="relative">
-                      <DollarSign className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500" />
+                      <DollarSign className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-text" />
                       <Input id="amount" placeholder="0.00" className="pl-10" />
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-slate-500">Available: $12,450.00</span>
+                      <span className="text-text">Available: $12,450.00</span>
                       <button className="font-medium text-emerald-600 hover:text-emerald-700">Max</button>
                     </div>
                   </div>
@@ -85,7 +74,7 @@ const Withdraw = () => {
                           </div>
                           <div className="flex-1">
                             <div className="font-medium">Bank Account</div>
-                            <div className="text-sm text-slate-500">3-5 business days, no fees</div>
+                            <div className="text-sm text-text">3-5 business days, no fees</div>
                           </div>
                         </Label>
                       </div>
@@ -101,7 +90,7 @@ const Withdraw = () => {
                           </div>
                           <div className="flex-1">
                             <div className="font-medium">PayPal</div>
-                            <div className="text-sm text-slate-500">Instant, 1.5% fee</div>
+                            <div className="text-sm text-text">Instant, 1.5% fee</div>
                           </div>
                         </Label>
                       </div>
@@ -128,7 +117,7 @@ const Withdraw = () => {
                   <Separator />
                   <div className="flex w-full items-center justify-between">
                     <div>
-                      <p className="text-sm text-slate-500">Processing Fee</p>
+                      <p className="text-sm text-text">Processing Fee</p>
                       <p className="text-sm font-medium">$0.00</p>
                     </div>
                     <Button className="gap-2 bg-emerald-600 hover:bg-emerald-700">
@@ -164,7 +153,7 @@ const Withdraw = () => {
                           {transaction.status}
                         </span>
                       </div>
-                      <p className="text-xs text-slate-500">{transaction.date}</p>
+                      <p className="text-xs text-text">{transaction.date}</p>
                     </div>
                   ))}
                   <Button variant="outline" className="w-full">
