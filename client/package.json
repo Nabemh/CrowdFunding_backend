@@ -21,6 +21,8 @@
     "@tailwindcss/vite": "^4.1.5",
     "@thirdweb-dev/react": "^4.9.4",
     "@thirdweb-dev/sdk": "^4.0.99",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "ethereum-blockies": "^0.1.1",
     "ethereum-blockies-base64": "^1.0.2",
     "ethers": "^5.8.0",
@@ -28,6 +30,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.4.1",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss-animate": "^1.0.7",
     "thirdweb": "^5"
   },
   "devDependencies": {
