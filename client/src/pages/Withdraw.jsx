@@ -1,4 +1,4 @@
-import React from "react"
+import React,  { useState, useEffect } from "react"
 import { ArrowRight, CreditCard, DollarSign, HelpCircle, Wallet } from "lucide-react"
 
 import { Button } from "@/components/ui/button"

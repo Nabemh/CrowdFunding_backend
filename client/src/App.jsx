@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { Home, CampaignDetails, CreateCampaign, Profile } from './pages';
+import { Home, CampaignDetails, CreateCampaign, Profile, Withdraw } from './pages';
 import { Navbar, Sidebar } from './components';
 
 const App = () => {
@@ -33,6 +33,7 @@ const App = () => {
           <Route path='/profile' element={<Profile />} />
           <Route path='/create-campaign' element={<CreateCampaign />} />
           <Route path='/campaign-details/:id' element={<CampaignDetails />} />
+          <Route path="/withdraw" element={<Withdraw />} />
         </Routes>
       </div>
     </div>
