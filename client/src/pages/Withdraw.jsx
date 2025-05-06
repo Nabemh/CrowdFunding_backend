@@ -1,3 +1,4 @@
+import React from "react"
 import { ArrowRight, CreditCard, DollarSign, HelpCircle, Wallet } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -9,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Separator } from "@/components/ui/separator"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
-export default function WithdrawPage() {
+const Withdraw = () => {
   return (
     <div className="flex min-h-screen flex-col bg-slate-50">
       <header className="border-b bg-white px-6 py-4">
@@ -178,3 +179,5 @@ export default function WithdrawPage() {
     </div>
   )
 }
+
+export default Withdraw
