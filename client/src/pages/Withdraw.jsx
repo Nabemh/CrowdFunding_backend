@@ -120,7 +120,7 @@ const Withdraw = () => {
                       <p className="text-sm text-text">Processing Fee</p>
                       <p className="text-sm font-medium">$0.00</p>
                     </div>
-                    <Button className="gap-2 bg-emerald-600 hover:bg-emerald-700">
+                    <Button className="gap-2 bg-[#1dc071] hover:bg-[#46ee9c] text-text">
                       Withdraw Funds
                       <ArrowRight className="h-4 w-4" />
                     </Button>
