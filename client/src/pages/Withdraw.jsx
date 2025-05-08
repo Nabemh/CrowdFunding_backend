@@ -15,7 +15,7 @@ const Withdraw = () => {
     <div className="flex min-h-screen flex-col bg-background">
       <main className="flex-1 px-4 py-12">
         <div className="mx-auto max-w-3xl">
-          <div className="mb-8">
+          <div className="mb-8 text-center">
             <h2 className="text-3xl font-bold text-text">Withdraw Funds</h2>
             <p className="mt-2 text-text">Transfer your project funds to your preferred payment method.</p>
           </div>
