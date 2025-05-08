@@ -60,43 +60,6 @@ const Withdraw = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-3">
-                    <Label className="text-base">Payment Method</Label>
-                    <RadioGroup defaultValue="bank" className="grid gap-4 pt-2">
-                      <div className="relative flex items-start">
-                        <RadioGroupItem value="bank" id="bank" className="mt-1 peer sr-only" />
-                        <Label
-                          htmlFor="bank"
-                          className="flex w-full cursor-pointer items-center rounded-lg border border-slate-200 bg-white p-4 hover:bg-slate-50 peer-data-[state=checked]:border-emerald-500 peer-data-[state=checked]:ring-1 peer-data-[state=checked]:ring-emerald-500"
-                        >
-                          <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
-                            <CreditCard className="h-5 w-5" />
-                          </div>
-                          <div className="flex-1">
-                            <div className="font-medium">Bank Account</div>
-                            <div className="text-sm text-text">3-5 business days, no fees</div>
-                          </div>
-                        </Label>
-                      </div>
-
-                      <div className="relative flex items-start">
-                        <RadioGroupItem value="paypal" id="paypal" className="mt-1 peer sr-only" />
-                        <Label
-                          htmlFor="paypal"
-                          className="flex w-full cursor-pointer items-center rounded-lg border border-slate-200 bg-white p-4 hover:bg-slate-50 peer-data-[state=checked]:border-emerald-500 peer-data-[state=checked]:ring-1 peer-data-[state=checked]:ring-emerald-500"
-                        >
-                          <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-600">
-                            <Wallet className="h-5 w-5" />
-                          </div>
-                          <div className="flex-1">
-                            <div className="font-medium">PayPal</div>
-                            <div className="text-sm text-text">Instant, 1.5% fee</div>
-                          </div>
-                        </Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="account" className="text-base">
                       Select Account
@@ -156,9 +119,6 @@ const Withdraw = () => {
                       <p className="text-xs text-text">{transaction.date}</p>
                     </div>
                   ))}
-                  <Button variant="outline" className="w-full">
-                    View All Transactions
-                  </Button>
                 </CardContent>
               </Card>
             </div>
