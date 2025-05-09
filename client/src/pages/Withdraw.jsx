@@ -5,6 +5,7 @@ import { Button } from "../components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/ui/card"
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
+import { FormField } from '../components';
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select"
 import { Separator } from "../components/ui/separator"
@@ -30,9 +31,12 @@ const Withdraw = () => {
                 <CardContent className="space-y-6">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <Label htmlFor="amount" className="text-base">
-                        Amount
-                      </Label>
+                    <FormField
+                      labelName="Amount *"
+                      placeholder="$0.00"
+                      inputType="text"
+                      value={''}
+                    />
                       <TooltipProvider>
                         <Tooltip>
                           <TooltipTrigger asChild>
@@ -50,10 +54,6 @@ const Withdraw = () => {
                         </Tooltip>
                       </TooltipProvider>
                     </div>
-                    <div className="relative">
-                      <DollarSign className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-text" />
-                      <Input id="amount" placeholder="0.00" className="pl-10" />
-                    </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-text">Available: $12,450.00</span>
                       <button className="font-medium text-emerald-600 hover:text-emerald-700">Max</button>
@@ -61,19 +61,12 @@ const Withdraw = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="account" className="text-base">
-                      Select Account
-                    </Label>
-                    <Select>
-                      <SelectTrigger id="account">
-                        <SelectValue placeholder="Select an account" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="chase">Chase Bank (...4582)</SelectItem>
-                        <SelectItem value="wells">Wells Fargo (...7291)</SelectItem>
-                        <SelectItem value="new">+ Add new account</SelectItem>
-                      </SelectContent>
-                    </Select>
+                  <FormField
+                    labelName="Wallet address *"
+                    placeholder="Enter wallet address"
+                    inputType="text"
+                    value={''}
+                  />
                   </div>
                 </CardContent>
                 <CardFooter className="flex flex-col space-y-4">
