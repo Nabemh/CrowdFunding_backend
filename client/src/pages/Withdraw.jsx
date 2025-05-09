@@ -37,22 +37,6 @@ const Withdraw = () => {
                       inputType="text"
                       value={''}
                     />
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <Button variant="ghost" size="icon" className="h-6 w-6">
-                              <HelpCircle className="h-4 w-4" />
-                              <span className="sr-only">Help</span>
-                            </Button>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p className="max-w-xs">
-                              You can withdraw up to your available balance. Withdrawals typically process within 3-5
-                              business days.
-                            </p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-text">Available: $12,450.00</span>
