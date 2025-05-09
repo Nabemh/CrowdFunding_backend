@@ -13,7 +13,6 @@ const Withdraw = () => {
         <div className="mx-auto max-w-3xl">
           <div className="mb-8 text-center">
             <h2 className="text-3xl font-bold text-text">Withdraw Funds</h2>
-            <p className="mt-2 text-text">Transfer your project funds to your preferred payment method.</p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
@@ -21,7 +20,7 @@ const Withdraw = () => {
               <Card>
                 <CardHeader>
                   <CardTitle>Withdrawal Details</CardTitle>
-                  <CardDescription>Choose how much you want to withdraw and where to send it.</CardDescription>
+                  <CardDescription>Transfer your project funds to wallet.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="space-y-2">
