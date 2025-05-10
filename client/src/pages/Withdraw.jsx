@@ -11,11 +11,11 @@ const Withdraw = () => {
     <div className="flex min-h-screen flex-col bg-background">
       <main className="flex-1 px-4 py-12">
         <div className="mx-auto max-w-3xl">
-          <div className="mb-8 text-center">
+          <div className="mb-15 text-center">
             <h2 className="text-3xl font-bold text-text">Withdraw Funds</h2>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3 mt-7">
             <div className="md:col-span-2">
               <Card>
                 <CardHeader>
