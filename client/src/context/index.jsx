@@ -12,8 +12,9 @@ import { ethers } from 'ethers';
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-  const { contract } = useContract("0xb52D0FB62431e3ba90Ec2Ecde8C183044F4aDAC1");
+  const { contract } = useContract("0xD88131aE17Da2f15c8C7268a6cDe35bd47F15f4f");
   const { mutateAsync: createCampaign } = useContractWrite(contract, "createCampaign");
+  const { mutateAsync: withdrawToTeam } = useContractWrite(contract, "withdrawToTeam");
 
   const address = useAddress();
   const connectWithMetamask = useConnect();
