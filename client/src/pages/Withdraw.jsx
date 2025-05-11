@@ -8,7 +8,7 @@ import { Separator } from "../components/ui/separator";
 import { ArrowRight } from "lucide-react";
 
 const Withdraw = () => {
-  const { state } = useLocation();          // expects { owner, pId }
+  const { state } = useLocation();
   const navigate = useNavigate();
   const { withdrawToTeam, address } = useStateContext();
 
