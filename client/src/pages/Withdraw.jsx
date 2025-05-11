@@ -1,67 +1,67 @@
-import React,  { useState, useEffect } from "react"
-import { ArrowRight } from "lucide-react"
-
-import { Button } from "../components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/ui/card"
-import { FormField } from '../components';
-import { Separator } from "../components/ui/separator"
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useStateContext } from "../context";
+import { Button } from "../components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
+import { FormField } from "../components";
+import { Separator } from "../components/ui/separator";
+import { ArrowRight } from "lucide-react";
 
 const Withdraw = () => {
-  return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <main className="flex-1 px-4 py-12">
-        <div className="mx-auto max-w-3xl">
-          <div className="mb-15 text-center">
-            <h2 className="text-3xl font-bold text-text">Withdraw Funds</h2>
-          </div>
+  const { state } = useLocation();          // expects { owner, pId }
+  const navigate = useNavigate();
+  const { withdrawToTeam, address } = useStateContext();
 
-          <div className="grid gap-8 md:grid-cols-3 mt-7">
-            <div className="md:col-span-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Withdrawal Details</CardTitle>
-                  <CardDescription>Transfer your project funds to wallet.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                    <FormField
-                      labelName="Amount *"
-                      placeholder="$0.00"
-                      inputType="text"
-                      value={''}
-                    />
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-text">Available: $12,450.00</span>
-                      <button className="font-medium text-emerald-600 hover:text-emerald-700">Max</button>
-                    </div>
-                  </div>
+  const [recipient, setRecipient] = useState(state.owner || "");
+  const [isLoading, setIsLoading] = useState(false);
 
-                  <div className="space-y-2">
-                  <FormField
-                    labelName="Wallet address *"
-                    placeholder="Enter wallet address"
-                    inputType="text"
-                    value={''}
-                  />
-                  </div>
-                </CardContent>
-                <CardFooter className="flex flex-col space-y-4">
-                  <Separator />
-                  <div className="flex w-full items-center justify-between">
-                    <div>
-                      <p className="text-sm text-text">Processing Fee</p>
-                      <p className="text-sm font-medium">$0.00</p>
-                    </div>
-                    <Button className="gap-2 bg-[#1dc071] hover:bg-[#46ee9c] text-text">
-                      Withdraw Funds
-                      <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </CardFooter>
-              </Card>
-            </div>
+  const handleWithdraw = async () => {
+    if (address !== state.owner) {
+      alert("Only the campaign owner can withdraw.");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      await withdrawToTeam({ args: [recipient, state.pId] });
+      alert("Withdrawal successful!");
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+      alert("Withdrawal failed.");
+    }
+    setIsLoading(false);
+  };
+    return (
+      <div className="flex min-h-screen flex-col bg-background">
+        <main className="flex-1 px-4 py-12">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="mb-8 text-3xl font-bold text-text">Withdraw Funds</h2>
+            <Card>
+              <CardHeader>
+                <CardTitle>Withdrawal Details</CardTitle>
+                <CardDescription>Transfer your campaign funds to wallet.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <FormField
+                  labelName="Recipient Address *"
+                  placeholder="Enter wallet address"
+                  inputType="text"
+                  value={recipient}
+                  handleChange={(e) => setRecipient(e.target.value)}
+                />
+              </CardContent>
+              <CardFooter className="flex flex-col space-y-4">
+                <Separator />
+                <Button
+                  onClick={handleWithdraw}
+                  disabled={isLoading}
+                  className="gap-2 bg-[#1dc071] hover:bg-[#46ee9c] text-text"
+                >
+                  {isLoading ? "Processing..." : "Withdraw Funds"}
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </CardFooter>
+            </Card>
 
             <div>
               <Card>
@@ -94,10 +94,10 @@ const Withdraw = () => {
               </Card>
             </div>
           </div>
-        </div>
-      </main>
-    </div>
-  )
-}
+        </main>
+      </div>
+    );
+  };
 
 export default Withdraw
+

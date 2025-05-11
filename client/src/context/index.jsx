@@ -110,7 +110,7 @@ export const StateContextProvider = ({ children }) => {
         getUserCampaigns,
         donate,
         getDonations,
-        withdrawToTeam
+        withdrawToTeam,
       }}
     >
       {children}
