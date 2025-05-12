@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useStateContext } from "../context";
 import { Button } from "../components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
@@ -8,9 +8,17 @@ import { Separator } from "../components/ui/separator";
 import { ArrowRight } from "lucide-react";
 
 const Withdraw = () => {
+  const { owner, pId } = useParams();
   const { state } = useLocation();
   const navigate = useNavigate();
   const { withdrawToTeam, address } = useStateContext();
+
+  useEffect(() => {
+    if (!owner || !pId) {
+      navigate('/');
+    }
+  }, [owner, pId, navigate]);
+
 
   const [recipient, setRecipient] = useState(state.owner || "");
   const [isLoading, setIsLoading] = useState(false);
