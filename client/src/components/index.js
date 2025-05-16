@@ -3,6 +3,7 @@ import DisplayCampaigns from './DisplayCampaigns'
 import FundCard from './FundCard'
 import CountBox from './CountBox'
 import Logout from './Logout'
+import AdminDisplay from './AdminDisplay'
 export { default as Sidebar } from './Sidebar';
 export { default as Navbar } from './Navbar';
 export { default as CustomButton } from './CustomButton';

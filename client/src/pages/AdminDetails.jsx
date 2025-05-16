@@ -7,6 +7,12 @@ import { CountBox, CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
 import { thirdweb } from '../assets';
 
+import { Button } from "../components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
+import { FormField } from "../components";
+import { Separator } from "../components/ui/separator";
+import { ArrowRight } from "lucide-react";
+
 const AdminDetails = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -102,6 +108,32 @@ const AdminDetails = () => {
         <div className='flex-1'>
           <h4 className="font-epilogue font-semibold text-[18px] text-text uppercase">Withdraw</h4>
 
+          <Card>
+              <CardHeader>
+                <CardTitle>Withdrawal Details</CardTitle>
+                <CardDescription>Transfer your campaign funds to wallet.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <FormField
+                  labelName="Recipient Address *"
+                  placeholder="Enter wallet address"
+                  inputType="text"
+                  value={recipient}
+                  handleChange={(e) => setRecipient(e.target.value)}
+                />
+              </CardContent>
+              <CardFooter className="flex flex-col space-y-4">
+                <Separator />
+                <Button
+                  onClick={handleWithdraw}
+                  disabled={isLoading}
+                  className="gap-2 bg-[#1dc071] hover:bg-[#46ee9c] text-text"
+                >
+                  {isLoading ? "Processing..." : "Withdraw Funds"}
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </CardFooter>
+            </Card>
         </div>
     </div>
 
