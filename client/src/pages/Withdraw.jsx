@@ -13,7 +13,14 @@ const Withdraw = () => {
   const navigate = useNavigate();
   const { withdrawToTeam, address } = useStateContext();
 
-  const [recipient, setRecipient] = useState();
+  useEffect(() => {
+    if (!owner || !pId) {
+      navigate('/');
+    }
+  }, [owner, pId, navigate]);
+
+
+  const [recipient, setRecipient] = useState(state.owner || "");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleWithdraw = async () => {
@@ -64,6 +71,36 @@ const Withdraw = () => {
               </CardFooter>
             </Card>
 
+            <div>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Transaction History</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {[
+                    { date: "Apr 28, 2023", amount: "$2,500.00", status: "Completed" },
+                    { date: "Mar 15, 2023", amount: "$1,750.00", status: "Completed" },
+                    { date: "Feb 02, 2023", amount: "$3,200.00", status: "Completed" },
+                  ].map((transaction, i) => (
+                    <div key={i} className="space-y-1 rounded-lg border border-slate-200 p-3">
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium">{transaction.amount}</span>
+                        <span
+                          className={
+                            transaction.status === "Completed"
+                              ? "text-xs font-medium text-emerald-600"
+                              : "text-xs font-medium text-amber-600"
+                          }
+                        >
+                          {transaction.status}
+                        </span>
+                      </div>
+                      <p className="text-xs text-text">{transaction.date}</p>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </main>
       </div>
@@ -71,4 +108,3 @@ const Withdraw = () => {
   };
 
 export default Withdraw
-
