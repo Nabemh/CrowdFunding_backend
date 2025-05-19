@@ -13,12 +13,6 @@ const Withdraw = () => {
   const navigate = useNavigate();
   const { withdrawToTeam, address } = useStateContext();
 
-  useEffect(() => {
-    if (!owner || !pId) {
-      navigate('/');
-    }
-  }, [owner, pId, navigate]);
-
 
   const [recipient, setRecipient] = useState(state.owner || "");
   const [isLoading, setIsLoading] = useState(false);
