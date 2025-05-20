@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { loader } from '../assets';
 import FundCard from './FundCard';
 
-const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
+const DisplayCampaigns = ({ title, isLoading, campaigns, source }) => {
   const navigate = useNavigate();
 
   const handleNavigate = (campaign) => {
     navigate(`/campaign-details/${campaign.title}`, {
        state : {
-        ... campaign,
+        ...campaign,
         source,
       },
       })
@@ -39,7 +39,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
       />
       )}
     </div>
-    </div>
+  </div>
   )
 }
 

@@ -14,7 +14,7 @@ const Withdraw = () => {
   const { withdrawToTeam, address } = useStateContext();
 
 
-  const [recipient, setRecipient] = useState(state.owner || "");
+  const [recipient, setRecipient] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleWithdraw = async () => {
