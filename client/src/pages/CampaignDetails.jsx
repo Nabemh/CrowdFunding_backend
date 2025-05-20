@@ -19,6 +19,10 @@ const CampaignDetails = () => {
 
   const remainingDays = daysLeft(state.deadline);
 
+  const goToWithdraw = () => {
+    navigate(`/withdraw`)
+  };
+
   const fetchDonators = async () => {
     const data = await getDonations(state.pId);
 
@@ -108,11 +112,12 @@ const CampaignDetails = () => {
           <div className='mt-[20px] flex flex-col p-4 bg-background rounded-[10px]'>
             {state?.source === 'profile' && state.owner === address ? (
               <>
-                <p className='font-epilogue font-medium text-[20px] leading-[30px] text-center text-text'>
-                  Withdraw your funds
-                </p>
-
-               
+                 <CustomButton
+                    btnType="button"
+                    title="Withdraw"
+                    styles="w-full bg-[#8c6dfd]"
+                    handleClick={goToWithdraw}
+                  />
               </>
             ) : (
               <>
