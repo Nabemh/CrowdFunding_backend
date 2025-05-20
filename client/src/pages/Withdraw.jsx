@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useStateContext } from "../context";
 import { Button } from "../components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
@@ -8,20 +8,39 @@ import { Separator } from "../components/ui/separator";
 import { ArrowRight } from "lucide-react";
 
 const Withdraw = () => {
-  const { owner, pId } = useParams();
   const { state } = useLocation();
   const navigate = useNavigate();
   const { withdrawToTeam, address } = useStateContext();
 
-
   const [recipient, setRecipient] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (!state) {
+      navigate("/"); // if accessed without campaign state
+      return;
+    }
+
+    const now = Date.now();
+    const deadlineMs = parseInt(state.deadline);
+
+    if (deadlineMs > now) {
+      alert("Campaign is still in progress. You can withdraw only after the deadline.");
+      navigate(`/campaign-details/${state.title}`, { state });
+    }
+  }, [state, navigate]);
 
   const handleWithdraw = async () => {
     if (address !== state.owner) {
       alert("Only the campaign owner can withdraw.");
       return;
     }
+
+    if (!ethers.utils.isAddress(recipient)) {
+      alert("Please enter a valid Ethereum address.");
+      return;
+    }
+
     setIsLoading(true);
     try {
       await withdrawToTeam({ args: [recipient, state.pId] });
