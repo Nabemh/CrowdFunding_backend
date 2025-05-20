@@ -34,8 +34,6 @@ const App = () => {
           <Route path='/create-campaign' element={<CreateCampaign />} />
           <Route path='/campaign-details/:id' element={<CampaignDetails />} />
           <Route path='/withdraw/' element={<Withdraw />} />
-          <Route path='/admin-details/:id' element={<AdminDetails />} />
-
         </Routes>
       </div>
     </div>
