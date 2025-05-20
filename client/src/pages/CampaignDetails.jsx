@@ -22,11 +22,10 @@ const CampaignDetails = () => {
   const goToWithdraw = () => {
     navigate('/withdraw', {
       state: {
-        campaign: state, // or pass campaign directly if already available
+        campaign: state,
       },
     });
   };
-  
 
   const fetchDonators = async () => {
     const data = await getDonations(state.pId);
