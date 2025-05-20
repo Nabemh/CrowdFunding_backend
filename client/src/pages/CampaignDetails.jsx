@@ -20,8 +20,13 @@ const CampaignDetails = () => {
   const remainingDays = daysLeft(state.deadline);
 
   const goToWithdraw = () => {
-    navigate(`/withdraw`)
+    navigate('/withdraw', {
+      state: {
+        campaign: state, // or pass campaign directly if already available
+      },
+    });
   };
+  
 
   const fetchDonators = async () => {
     const data = await getDonations(state.pId);

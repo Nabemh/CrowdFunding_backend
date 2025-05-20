@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useStateContext } from "../context";
 import { Button } from "../components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
@@ -10,47 +10,41 @@ import { ArrowRight } from "lucide-react";
 const Withdraw = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const { withdrawToTeam, address } = useStateContext();
+
+  const campaign = state?.campaign;
 
   const [recipient, setRecipient] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (!state) {
-      navigate("/"); // if accessed without campaign state
-      return;
+    if (!campaign) {
+      alert("Missing campaign data");
+      return navigate("/");
     }
 
-    const now = Date.now();
-    const deadlineMs = parseInt(state.deadline);
-
-    if (deadlineMs > now) {
-      alert("Campaign is still in progress. You can withdraw only after the deadline.");
-      navigate(`/campaign-details/${state.title}`, { state });
+    if (Date.now() < parseInt(campaign.deadline)) {
+      alert("Campaign is still in progress.");
+      return navigate("/");
     }
-  }, [state, navigate]);
+  }, [campaign, navigate]);
 
   const handleWithdraw = async () => {
-    if (address !== state.owner) {
-      alert("Only the campaign owner can withdraw.");
-      return;
-    }
-
     if (!ethers.utils.isAddress(recipient)) {
-      alert("Please enter a valid Ethereum address.");
+      alert("Invalid address.");
       return;
     }
 
-    setIsLoading(true);
     try {
-      await withdrawToTeam({ args: [recipient, state.pId] });
+      setIsLoading(true);
+      await withdrawToTeam({ args: [recipient, campaign.pId] });
       alert("Withdrawal successful!");
       navigate("/");
-    } catch (err) {
-      console.error(err);
-      alert("Withdrawal failed.");
+    } catch (error) {
+      console.error(error);
+      alert("Failed to withdraw.");
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
     return (
       <div className="flex min-h-screen flex-col bg-background">
